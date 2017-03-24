@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+<style>
+  body{
+    font-family: arial;
+    padding: 10px;
+  }
+  table{
+    border-collapse: collapse;
+    border:1px solid black;
+    margin: 10px 0px;
+  }
+  th, td{
+     border:1px solid ;
+     padding: 5px;
+  }
+  .comments{
+    margin-left: 50px;
+  }
+</style>
+  <meta charset="UTF-8">
+  <script src='angular/angular.js'></script>
+  <script src='angular-route/angular-route.js'></script>
+  <script src='angular-messages/angular-messages.js'></script>
+  <script src='js/config.js'></script>
+  <script src='js/factory.js'></script>
+  <script src='js/users_controller.js'></script>
+  <script src='js/topics_controller.js'></script>
+  <script src='js/dashboard_controller.js'></script>
+  <script src='js/index_controller.js'></script>
+  <title>Belt Preparation</title>
+</head>
+<body>
+  <div ng-view="">
+  </div>
+
+</body>
+</html>
