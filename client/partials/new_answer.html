@@ -1,0 +1,18 @@
+<a href="#!/dashboard">Dashboard</a> |
+<a href="#!/question/{{question._id}}">Go back to question</a> |
+<a href="#!/logout">Logout</a> 
+
+
+<fieldset class="form">
+	<legend><h2>Post your answer here</h2></legend>
+	<form name="answerForm">
+		<p><label>Answer</label></p>
+		<textarea ng-model="newAnswer.content" name="content" required minlength="5" cols="70" rows="5"></textarea>
+		<p><label>Supporting details for your answer(optional)</label></p>
+		<textarea ng-model="newAnswer.support" id="" cols="70" rows="5"></textarea><br>
+		<input type="submit" ng-click="addAnswer(newAnswer,question._id)" value="Submit">
+	</form>
+	<div class="errors" ng-messages="answerForm.content.$error">
+		<p ng-message="required">Answer must have at least 5 characters.</p>
+	</div>
+</fieldset>

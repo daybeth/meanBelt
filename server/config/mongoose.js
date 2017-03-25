@@ -5,7 +5,7 @@ var fs = require('fs');
 // require path for getting the models path
 var path = require('path');
 // connect to mongoose!
-mongoose.connect('mongodb://localhost/beltPreparation');
+mongoose.connect('mongodb://localhost/meanBelt');
 
 mongoose.Promise = global.Promise;
 // create a variable that points to the path where all of the models live

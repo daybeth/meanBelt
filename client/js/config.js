@@ -10,13 +10,17 @@ app.config(function($routeProvider) {
       templateUrl: '/partials/dashboard.html',
       controller: 'dashboardController'
     })
-    .when('/topic/:id', {
-      templateUrl: '/partials/show_topic.html',
-      controller: 'topicController'
+    .when('/question/:id', {
+      templateUrl: '/partials/show_question.html',
+      controller: 'questionController'
     })
-   .when('/user/:id', {
-      templateUrl: '/partials/show_user.html',
-      controller: 'usersController'
+   .when('/question/:id/new_answer', {
+      templateUrl: '/partials/new_answer.html',
+      controller: 'answerController'
+    })
+   .when('/new_question', {
+      templateUrl: '/partials/new_question.html',
+      controller: 'questionController'
     })
     .otherwise({
       redirectTo: '/'

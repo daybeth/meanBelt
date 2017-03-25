@@ -6,19 +6,13 @@ module.exports = function(app) {
 	app.get('/logout', serverController.logout);
 	app.get('/current', serverController.current);
 
-	app.get('/dashboard', serverController.getTopics);
-	app.post('/topic', serverController.addTopic);
+	app.get('/dashboard', serverController.getQuestions);
 
-	app.get('/topic/:id', serverController.showTopic);
-	app.post('/answer/:topic_id', serverController.addAnswer);
-	// app.get('/answers', serverController.getAnswers);
-	app.post('/comment/:answer_id', serverController.addComment);
-	// app.get('/comments/:answer_id', serverController.getComments);
+	app.post('/question', serverController.addQuestion);
 
+	app.get('/question/:id', serverController.showQuestion);
+	app.put('/likes/:answer_id', serverController.addLike);
 
-	app.get('/user/:id', serverController.showUser);
-	app.get('/topiccount/:id', serverController.topicCount);
-	app.get('/answercount/:id', serverController.answerCount);
-	app.get('/commentcount/:id', serverController.commentCount);
+	app.post('/answer/:question_id', serverController.addAnswer);
 
 }

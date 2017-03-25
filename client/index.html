@@ -4,7 +4,7 @@
 <style>
   body{
     font-family: arial;
-    padding: 10px;
+    padding: 20px;
   }
   table{
     border-collapse: collapse;
@@ -15,8 +15,25 @@
      border:1px solid ;
      padding: 5px;
   }
-  .comments{
-    margin-left: 50px;
+  .errors{
+    color: red;
+  }
+  .likeButton{
+    margin-left: 20%;
+    margin-top: 40px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .form{
+    padding-left: 60px;
+    margin-top: 20px;
+  }
+  .answers{
+    margin-left: 40px;
+ 
+  }
+  #inline{
+    display: inline-block;
   }
 </style>
   <meta charset="UTF-8">
@@ -25,11 +42,11 @@
   <script src='angular-messages/angular-messages.js'></script>
   <script src='js/config.js'></script>
   <script src='js/factory.js'></script>
-  <script src='js/users_controller.js'></script>
-  <script src='js/topics_controller.js'></script>
+  <script src='js/question_controller.js'></script>
+  <script src='js/answer_controller.js'></script>
   <script src='js/dashboard_controller.js'></script>
   <script src='js/index_controller.js'></script>
-  <title>Belt Preparation</title>
+  <title>MEAN Belt</title>
 </head>
 <body>
   <div ng-view="">

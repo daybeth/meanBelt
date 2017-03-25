@@ -1,36 +1,25 @@
 <a href="#!/logout">Logout</a>
 <h2>Welcome {{user.name}}</h2>
-<input type="search" ng-model="topicfilter" placeholder="Filter...">
+<p><a href="#!/new_question">Add New Question</a></p>
+<p id="searchBar">Search: <input type="search" ng-model="questionfilter" placeholder="Filter..."></p>
 <table>
 	<thead>
 		<tr>
-			<th>Category</th>
-			<th>Topic</th>
-			<th>User name</th>
-			<th>Posts</th>
+			<th>Question</th>
+			<th>Answer</th>
+			<th>Actions</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="topic in topics | filter: topicfilter as results">
+		<tr ng-repeat="question in questions | filter: questionfilter as results  ">
 		<p ng-if="results.length === 0"><strong>No results found...</strong></p>
-			<td>{{topic.category}}</td>
-			<td><a href="#!/topic/{{topic._id}}">{{topic.topic}}</a></td>
-			<td><a href="#!/user/{{topic.user._id}}">{{topic.user.name}}</a></td>
-			<td>{{topic.answers.length}}</td>
+			<td>{{question.content}}</td>
+			<td>{{question.answers.length}}</td>
+			<td>
+				<a href="#!/question/{{question._id}}">Show</a> | 
+				<a href="#!/question/{{question._id}}/new_answer">Answer</a>
+			</td>		
+			<!-- <a href="#!/question/{{question._id}}/new_answer">Answer</a></td>		 -->
 		</tr>
 	</tbody>
 </table>
-<fieldset>
-	<legend>Add a new Topic</legend>
-	<form>
-		<p>Topic: <input type="string" ng-model="newTopic.topic"></p>
-		<p>Description: <input type="string" ng-model="newTopic.description"></p>
-		<p>Category <select ng-model="newTopic.category" id="">
-			<option value="fashion">Fashion</option>
-			<option value="cars">Cars</option>
-			<option value="coding">Coding</option>
-			<option value="sports">Sports</option>
-		</select></p>
-		<input type="submit" ng-click="addTopic(newTopic)" value="Add Topic">
-	</form>
-</fieldset>

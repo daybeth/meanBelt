@@ -1,4 +1,4 @@
-app.factory('TopicFactory', ['$http', '$location', function($http,$location){
+app.factory('QuestionFactory', ['$http', '$location', function($http,$location){
 	var factory = {};
 	factory.register = function(user){
 		$http({
@@ -33,20 +33,19 @@ app.factory('TopicFactory', ['$http', '$location', function($http,$location){
 			console.log(res)
 		})
 	}
-	factory.addTopic = function(topic,callback){
-		console.log("factory",topic)
+	factory.addQuestion = function(question){
+		console.log("factory",question)
 		$http({
-			url:'/topic',
+			url:'/question',
 			method: 'POST',
-			data: topic
+			data: question
 		}).then(function(res){
 			console.log(res);
-			callback();
 		}, function(res){
 			console.log(res);
 		})
 	};
-	factory.getTopics = function(callback){
+	factory.getQuestions = function(callback){
 		$http({
 			url: '/dashboard',
 			method: 'GET'
@@ -56,10 +55,10 @@ app.factory('TopicFactory', ['$http', '$location', function($http,$location){
 		},function(res){
 			console.log(res)
 		})
-	}
-	factory.showTopic = function(id,callback){
+	};
+	factory.showQuestion = function(id,callback){
 		$http({
-			url: '/topic/'+id,
+			url: '/question/'+id,
 			method: 'GET'
 		}).then(function(res){
 			callback(res.data);
@@ -67,73 +66,24 @@ app.factory('TopicFactory', ['$http', '$location', function($http,$location){
 		},function(res){
 			console.log(res)
 		})
-	}
-	factory.addAnswer = function(answer,topic_id){
-		console.log("factory",answer)
+	},
+	factory.addAnswer = function(answer,question_id){
 		$http({
-			url:'/answer/'+ topic_id,
+			url:'/answer/'+ question_id,
 			method: 'POST',
 			data: answer
 		}).then(function(res){
 			console.log(res);
-			// callback();
 		}, function(res){
 			console.log(res);
 		})
 	};
-	factory.addComment = function(comment,answer_id){
-		console.log("factory",comment)
+	factory.addLike = function(answer_id){
+	console.log("factory",answer_id)				
 		$http({
-			url:'/comment/'+ answer_id,
-			method: 'POST',
-			data: comment
+			url: '/likes/'+ answer_id,
+			method: 'PUT'
 		}).then(function(res){
-			console.log(res);
-			// callback();
-		}, function(res){
-			console.log(res);
-		})
-	};
-	factory.showUser = function(id,callback){
-		$http({
-			url: '/user/'+id,
-			method: 'GET'
-		}).then(function(res){
-			callback(res.data);
-			console.log(res)
-		},function(res){
-			console.log(res)
-		})
-		
-	}
-	factory.topicCount = function(id,callback){
-		$http({
-			url: '/topiccount/'+id,
-			method: 'GET'
-		}).then(function(res){
-			callback(res.data);
-			console.log(res)
-		},function(res){
-			console.log(res)
-		})
-	}
-	factory.answerCount = function(id,callback){
-		$http({
-			url: '/answercount/'+id,
-			method: 'GET'
-		}).then(function(res){
-			callback(res.data);
-			console.log(res)
-		},function(res){
-			console.log(res)
-		})
-	}
-	factory.commentCount = function(id,callback){
-		$http({
-			url: '/commentcount/'+id,
-			method: 'GET'
-		}).then(function(res){
-			callback(res.data);
 			console.log(res)
 		},function(res){
 			console.log(res)

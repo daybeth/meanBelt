@@ -1,0 +1,16 @@
+<a href="#!/dashboard">Dashboard</a>
+<a href="#!/logout">Logout</a>
+
+<fieldset class="form">
+	<legend><h2>Post your question here</h2></legend>
+	<form name="questionForm">
+		<p><label>Question</label></p>
+		<textarea ng-model="newQuestion.content" name="content" required minlength="10" cols="70" rows="5"></textarea>
+		<p><label>Description (optional)</label></p>
+		<textarea ng-model="newQuestion.description" id="" cols="70" rows="5"></textarea><br>
+		<input type="submit" ng-click="addQuestion(newQuestion)" value="Submit">
+	</form>
+	<div class="errors" ng-messages="questionForm.content.$error">
+		<p ng-message="required">Question must have at least 10 characters.</p>
+	</div>
+</fieldset>
